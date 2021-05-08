@@ -22,7 +22,7 @@ weatherForm.addEventListener('submit', (e) => {
     messageOne.textContent = 'Loading...'
     messageTwo.textContent = ''
 
-    fetch('http://localhost:3000/weather?address=' + location).then((response) => {  //We have to put the location that the user will put in box here in api so this location si added
+    fetch('/weather?address=' + location).then((response) => {  //We have to put the location that the user will put in box here in api so this location si added
         response.json().then((data) => {
             if (data.error) {
                 messageOne.textContent = data.error             //This will show data on screen 
@@ -33,3 +33,24 @@ weatherForm.addEventListener('submit', (e) => {
         })
     })
 })
+
+
+// weatherForm.addEventListener('submit', (e) => {
+//     e.preventDefault()  //This will prevent the default value action of form to refresh the page
+
+//     const location = search.value
+
+//     messageOne.textContent = 'Loading...'
+//     messageTwo.textContent = ''
+
+//     fetch('http://localhost:3000/weather?address=' + location).then((response) => {  //We have to put the location that the user will put in box here in api so this location si added
+//         response.json().then((data) => {
+//             if (data.error) {
+//                 messageOne.textContent = data.error             //This will show data on screen 
+//             } else {
+//                 messageOne.textContent = data.location
+//                 messageTwo.textContent = data.forecast
+//             }
+//         })
+//     })
+// })
